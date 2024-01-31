@@ -1,0 +1,14 @@
+# 初始化mysql将日志显示在控制台，可以看到临时密码
+mysqld.exe --initialize --console
+
+# 通过控制台直接启动mysql服务
+mysqld.exe --console
+
+# 通过mysql自带控制台登录
+mysql.exe -uroot -p
+
+# 修改root用户密码
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+
+# 授权root用户可以从任何ip使用账号密码登录
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
